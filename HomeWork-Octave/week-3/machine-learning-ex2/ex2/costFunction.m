@@ -20,8 +20,11 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
-
-
+h = sigmoid(X * theta);
+entropy1 = -y' * log(h);
+entropy0 = -(1-y)' * log(1- h);
+J = (1 / m) * (entropy1 + entropy0);
+grad = (1 / m) * X' * (h - y);
 
 
 
